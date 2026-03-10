@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+:root {
+  --qg-slate-blue: #3e5c76;
+  --qg-soft-earth: #e6e2dd;
+  --qg-deep-charcoal: #2f2f2f;
+  --qg-white: #ffffff;
+  --qg-accent: #5a7c8a;
+}
+
+@theme inline {
+  --font-sans: var(--font-inter);
+}
+
+body {
+  background: var(--qg-soft-earth);
+  color: var(--qg-deep-charcoal);
+  font-family: var(--font-inter), sans-serif;
+}
+
+.cta-button {
+  background-color: #6f8f9b;
+  transition: background-color 0.18s ease, transform 0.18s ease;
+}
+
+.cta-button:hover {
+  background-color: #7c9eaa;
+  transform: translateY(-2px);
+}
+
+.cta-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.founder-field:focus,
+.founder-field:focus-visible {
+  outline: none;
+  border: 2px solid #7fa0b0 !important;
+  box-shadow: none;
+}
+
+.assessment-option {
+  background: #f4f5f6;
+  border: none;
+  color: #2f2f2f;
+}
