@@ -30,35 +30,30 @@ export default function ResultsPage() {
   const { founderInfo, score, complete } = useDiagnostic()
 
   useEffect(() => {
-    if (!founderInfo) {
-      router.replace("/founder-info")
-      return
-    }
+    if (!founderInfo || !complete || !score) return
 
-    if (!complete) {
-      router.replace("/assessment")
-      return
-    }
+    console.log("SAVE EFFECT", founderInfo, complete, score)
 
     fetch("/api/save-assessment", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify({
-    name: founderInfo.founderName,
-    email: founderInfo.email,
-    company: founderInfo.company,
-    companySize: founderInfo.companySize,
-    visibility: score.visibility,
-    flow: score.flow,
-    friction: score.friction,
-    automation: score.automation,
-    score: score,
-    stage: "Assessment Complete",
-  }),
-});
-}, [])
+      method: "POST",
+      headers: {
+       "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: founderInfo.founderName,
+        email: founderInfo.email,
+        company: founderInfo.company,
+        companySize: founderInfo.companySize,
+        visibility: score.visibility,
+        flow: score.flow,
+        friction: score.friction,
+        automation: score.automation,
+        score: score,
+        stage: "Assessment Complete",
+      }),
+    })
+ 
+  }, [founderInfo, complete, score])
 
   const interpretation =
     score >= 24
