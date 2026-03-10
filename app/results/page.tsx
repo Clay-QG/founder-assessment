@@ -46,7 +46,7 @@ export default function ResultsPage() {
     "Content-Type": "application/json",
   },
   body: JSON.stringify({
-    name: founderInfo.name,
+    name: founderInfo.founderName,
     email: founderInfo.email,
     company: founderInfo.company,
     companySize: founderInfo.companySize,
