@@ -36,8 +36,27 @@ export default function ResultsPage() {
     }
     if (!complete) {
       router.replace("/assessment")
+      return
     }
-  }, [complete, founderInfo, router])
+fetch("/api/save-assessment", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    name: founderInfo.name,
+    email: founderInfo.email,
+    company: founderInfo.company,
+    companySize: founderInfo.companySize,
+    visibility: score.visibility,
+    flow: score.flow,
+    friction: score.friction,
+    automation: score.automation,
+    score: score,
+    stage: interpretation.title,
+  }),
+});
+}, [complete, founderInfo, router})
 
   const interpretation =
     score >= 24
