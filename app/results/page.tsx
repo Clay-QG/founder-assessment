@@ -55,10 +55,10 @@ export default function ResultsPage() {
     friction: score.friction,
     automation: score.automation,
     score: score,
-    stage: interpretation.title,
+    stage: "Assessment Complete",
   }),
 });
-}, [score])
+}, [complete, founderInfo, router, score])
 
   const interpretation =
     score >= 24
