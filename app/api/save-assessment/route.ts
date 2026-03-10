@@ -8,7 +8,7 @@ export async function POST(req: Request) {
     {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${process.env.AIRTABLE_TOKEN}`,
+        Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
