@@ -39,7 +39,6 @@ export default function ResultsPage() {
       router.replace("/assessment")
       return
     }
-    if (!score) return
 
     fetch("/api/save-assessment", {
   method: "POST",
