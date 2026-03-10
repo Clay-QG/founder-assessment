@@ -58,7 +58,7 @@ export default function ResultsPage() {
     stage: "Assessment Complete",
   }),
 });
-}, [complete, founderInfo, router, score])
+}, [])
 
   const interpretation =
     score >= 24
