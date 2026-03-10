@@ -1,4 +1,4 @@
-"use client"
+√"use client"
 
 import { useEffect } from "react"
 import { useRouter } from "next/navigation"
@@ -34,11 +34,12 @@ export default function ResultsPage() {
       router.replace("/founder-info")
       return
     }
+
     if (!complete) {
       router.replace("/assessment")
       return
     }
-fetch("/api/save-assessment", {
+    fetch("/api/save-assessment", {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
