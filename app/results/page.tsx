@@ -44,6 +44,8 @@ export default function ResultsPage() {
         email: founderInfo.email,
         company: founderInfo.company,
         companySize: founderInfo.companySize,
+        industry: founderInfo.industry,
+        ole: founderInfo.role,
         score: score,
         stage: "Assessment Complete",
       }),
