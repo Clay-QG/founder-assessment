@@ -93,7 +93,7 @@ export const assessment: AssessmentQuestion[] = [
   {
     prompt: "How frequently does leadership step in to resolve operational issues?",
     category: "friction",
-    options: [...]
+    options: [
       { label: "Rarely — teams resolve issues independently", score: 3 },
       { label: "Occasionally — leadership provides guidance", score: 2 },
       { label: "Often — leadership must step in", score: 1 },
