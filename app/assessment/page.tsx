@@ -75,7 +75,7 @@ export default function AssessmentPage() {
     router.push(
       `/results?visibility=${visibility}&flow=${flow}&friction=${friction}&automation=${automation}`
     )
-  
+    } 
 
   function selectAnswer(index: number, value: number) {
     if (selectedIndex !== null) {
@@ -83,7 +83,7 @@ export default function AssessmentPage() {
     }
     setSelectedIndex(index)
     window.setTimeout(() => {
-      answer(value)
+      answer(value, assessment[step].category)
     }, 250)
   }
 
