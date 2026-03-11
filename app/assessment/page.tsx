@@ -135,10 +135,10 @@ export default function AssessmentPage() {
             style={{
               margin: "0 0 18px",
               color: "#BDBAB4",
-              fontSize: "22px",
+              fontSize: "clamp(18px, 2.8vw, 22px)",
               fontWeight: 600,
               letterSpacing: "0.04em",
-              lineHeight: 1,
+              lineHeight: 1.3,
               opacity: 0.85,
             }}
           >
