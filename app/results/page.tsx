@@ -30,7 +30,7 @@ export default function ResultsPage() {
   const { founderInfo, score, visibility, flow, friction, automation, complete } = useDiagnostic()
 
   useEffect(() => {
-    if (!founderInfo || !complete || !score) return
+    if (!founderInfo || !complete) return
 
     console.log("SAVE EFFECT", founderInfo, complete, score)
 
