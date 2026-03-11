@@ -17,6 +17,8 @@ export async function POST(req: Request) {
           Email: body.email,
           Company: body.company,
           "Company Size": body.companySize,
+          Industry: body.industry,
+          Role: body.role,
           "Leadership Visibility": body.visibility,
           "Operational Flow": body.flow,
           "Decision Friction": body.friction,
