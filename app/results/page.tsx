@@ -27,7 +27,7 @@ const shared = {
 
 export default function ResultsPage() {
   const router = useRouter()
-  const { founderInfo, score, complete } = useDiagnostic()
+  const { founderInfo, score, visibility, flow, friction, automation, complete } = useDiagnostic()
 
   useEffect(() => {
     if (!founderInfo || !complete || !score) return
@@ -46,7 +46,10 @@ export default function ResultsPage() {
         companySize: founderInfo.companySize,
         industry: founderInfo.industry,
         role: founderInfo.role,
-        visibility: score.visibility,
+        visibility: visibility,
+        flow: flow,
+        friction: friction,
+        automation: automation,
         score: score,
         stage: "Assessment Complete",
       }),
