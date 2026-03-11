@@ -57,7 +57,7 @@ export default function ResultsPage() {
       }),
     })
  
-  }, [founderInfo, complete, score])
+  }, [founderInfo, complete, visibility, flow, friction, automation, score])
 
   const interpretation =
     score >= 24
