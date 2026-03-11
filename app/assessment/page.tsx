@@ -71,9 +71,15 @@ export default function AssessmentPage() {
       return
     }
 
-    setComplete(true)
-    router.push(
-      `/results?visibility=${visibility}&flow=${flow}&friction=${friction}&automation=${automation}`
+      const finalVisibility = visibility
+      const finalFlow = flow
+      const finalFriction = friction
+      const finalAutomation = automation
+
+      setComplete(true)
+
+      router.push(
+        `/results?visibility=${finalVisibility}&flow=${finalFlow}&friction=${finalFriction}&automation=${finalAutomation}`
     )
     } 
 
