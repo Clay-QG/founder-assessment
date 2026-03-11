@@ -8,8 +8,8 @@ import { useDiagnostic } from "../diagnostic-provider"
 const shared = {
   container: {
     width: "100%",
-    maxWidth: 680,
-    padding: "28px",
+    maxWidth: 620,
+    padding: "20px",
     borderRadius: 18,
     background: "#6A6C6D",
     border: "1px solid rgba(255,255,255,0.18)",
