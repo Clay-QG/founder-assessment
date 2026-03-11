@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect } from "react"
+import { useEffect, Suspense } from "react"
 import { useRouter, useSearchParams } from "next/navigation"
 import { brand } from "../diagnostic-data"
 import { useDiagnostic } from "../diagnostic-provider"
@@ -25,7 +25,7 @@ const shared = {
   } as const,
 }
 
-export default function ResultsPage() {
+function ResultsContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
 
@@ -265,5 +265,13 @@ export default function ResultsPage() {
         </section>
       </section>
     </main>
+  )
+}
+
+export default function ResultsPage() {
+  return (
+    <Suspense fallback={null}>
+      <ResultsContent />
+    </Suspense>
   )
 }
