@@ -27,7 +27,7 @@ const shared = {
 
 export default function ResultsPage() {
   const router = useRouter()
-  const { founderInfo, score, visibility, flow, friction, automation, complete } = useDiagnostic()
+  const { founderInfo, score, complete } = useDiagnostic()
 
   useEffect(() => {
     if (!founderInfo || !complete || !score) return
