@@ -71,16 +71,16 @@ export default function AssessmentPage() {
       return
     }
 
-      const finalVisibility = visibility
-      const finalFlow = flow
-      const finalFriction = friction
-      const finalAutomation = automation
+      const nextVisibility = category === "visibility" ? visibility + value : visibility
+      const nextFlow = category === "flow" ? flow + value : flow
+      const nextFriction = category === "friction" ? friction + value : friction
+      const nextAutomation = category === "automation" ? automation + value : automation
 
       setComplete(true)
 
       router.push(
-        `/results?visibility=${finalVisibility}&flow=${finalFlow}&friction=${finalFriction}&automation=${finalAutomation}`
-    )
+      `/results?visibility=${nextVisibility}&flow=${nextFlow}&friction=${nextFriction}&automation=${nextAutomation}`
+     )
     } 
 
   function selectAnswer(index: number, value: number) {
