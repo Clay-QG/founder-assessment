@@ -27,7 +27,7 @@ const shared = {
 
 export default function ResultsPage() {
   const router = useRouter()
-  const { founderInfo, score, complete } = useDiagnostic()
+  const { founderInfo, score, visibility, flow, friction, automation, complete } = useDiagnostic()
 
   useEffect(() => {
     if (!founderInfo || !complete || !score) return
@@ -39,7 +39,7 @@ export default function ResultsPage() {
       headers: {
        "Content-Type": "application/json",
       },
-      body: JSON.stringify({
+        body: JSON.stringify({
         name: `${founderInfo.firstName} ${founderInfo.lastName}`,
         email: founderInfo.email,
         company: founderInfo.company,
@@ -47,10 +47,10 @@ export default function ResultsPage() {
         industry: founderInfo.industry,
         role: founderInfo.role,
 
-        visibility: Math.round(score / 4),
-        flow: Math.round(score / 4),
-        friction: Math.round(score / 4),
-        automation: Math.round(score / 4),
+        visibility: visibility,
+        flow: flow,
+        friction: friction,
+        automation: automation,
 
         score: score,
         stage: "Assessment Complete",
