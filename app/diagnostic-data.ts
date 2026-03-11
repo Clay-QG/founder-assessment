@@ -5,12 +5,14 @@ export type AssessmentOption = {
 
 export type AssessmentQuestion = {
   prompt: string
+  category: "visibility" | "flow" | "friction" | "automation"
   options: AssessmentOption[]
 }
 
 export const assessment: AssessmentQuestion[] = [
   {
     prompt: "How clearly can leadership see what is happening across the business right now?",
+    category: "visibility",
     options: [
       { label: "Very clear — strong visibility across departments", score: 3 },
       { label: "Somewhat clear — but relies on meetings or manual updates", score: 2 },
@@ -20,6 +22,7 @@ export const assessment: AssessmentQuestion[] = [
   },
   {
     prompt: "How clearly are responsibilities defined across teams?",
+    category: "visibility"
     options: [
       { label: "Very clear — ownership is well defined", score: 3 },
       { label: "Mostly clear — some overlap exists", score: 2 },
@@ -29,6 +32,7 @@ export const assessment: AssessmentQuestion[] = [
   },
   {
     prompt: "How easily can leadership identify operational problems?",
+    category: "friction"
     options: [
       { label: "Very easily — issues become visible quickly", score: 3 },
       { label: "Usually — but often through meetings or reports", score: 2 },
@@ -38,6 +42,7 @@ export const assessment: AssessmentQuestion[] = [
   },
   {
     prompt: "How consistently does work move between departments?",
+    category: "flow"
     options: [
       { label: "Very consistently — workflows are clearly defined", score: 3 },
       { label: "Mostly consistently — but some coordination is informal", score: 2 },
@@ -47,6 +52,7 @@ export const assessment: AssessmentQuestion[] = [
   },
   {
     prompt: "How clearly are key business metrics tracked?",
+    category: "visibility"
     options: [
       { label: "Very clearly — dashboards provide reliable visibility", score: 3 },
       { label: "Mostly clearly — but some reporting is manual", score: 2 },
@@ -56,6 +62,7 @@ export const assessment: AssessmentQuestion[] = [
   },
   {
     prompt: "How dependent is the organization on meetings for operational updates?",
+    category: "friction",
     options: [
       { label: "Low — systems provide most operational visibility", score: 3 },
       { label: "Moderate — meetings provide context", score: 2 },
@@ -65,6 +72,7 @@ export const assessment: AssessmentQuestion[] = [
   },
   {
     prompt: "How clearly are workflows documented across teams?",
+    category: "automation"
     options: [
       { label: "Very clearly — workflows are documented and maintained", score: 3 },
       { label: "Somewhat clearly — documentation exists but incomplete", score: 2 },
@@ -74,6 +82,7 @@ export const assessment: AssessmentQuestion[] = [
   },
   {
     prompt: "How easily can new employees understand how work gets done?",
+    category: "flow"
     options: [
       { label: "Very easily — processes are clear and structured", score: 3 },
       { label: "Mostly easily — some learning through experience", score: 2 },
@@ -83,7 +92,8 @@ export const assessment: AssessmentQuestion[] = [
   },
   {
     prompt: "How frequently does leadership step in to resolve operational issues?",
-    options: [
+    category: "friction"
+    options: [...]
       { label: "Rarely — teams resolve issues independently", score: 3 },
       { label: "Occasionally — leadership provides guidance", score: 2 },
       { label: "Often — leadership must step in", score: 1 },
@@ -92,6 +102,7 @@ export const assessment: AssessmentQuestion[] = [
   },
   {
     prompt: "How prepared is the organization to introduce automation or AI?",
+    category: "automation"
     options: [
       { label: "Very prepared — workflows and data are structured", score: 3 },
       { label: "Somewhat prepared — some refinement needed", score: 2 },
