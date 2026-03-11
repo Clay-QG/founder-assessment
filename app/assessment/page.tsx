@@ -181,7 +181,7 @@ export default function AssessmentPage() {
             margin: 0,
             fontSize: "1.1rem",
             lineHeight: 1.62,
-            maxWidth: "28ch",
+            maxWidth: "34ch",
             position: "relative",
             zIndex: 1,
           }}
