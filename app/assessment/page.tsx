@@ -179,10 +179,9 @@ export default function AssessmentPage() {
         <p
           style={{
             margin: 0,
-            minHeight: 86,
-            fontSize: "1.22rem",
+            fontSize: "1.1rem",
             lineHeight: 1.62,
-            maxWidth: "28ch"'
+            maxWidth: "28ch",
             position: "relative",
             zIndex: 1,
           }}
