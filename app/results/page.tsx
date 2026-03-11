@@ -46,10 +46,12 @@ export default function ResultsPage() {
         companySize: founderInfo.companySize,
         industry: founderInfo.industry,
         role: founderInfo.role,
-        visibility: visibility,
-        flow: flow,
-        friction: friction,
-        automation: automation,
+
+        visibility: Math.round(score / 4),
+        flow: Math.round(score / 4),
+        friction: Math.round(score / 4),
+        automation: Math.round(score / 4),
+
         score: score,
         stage: "Assessment Complete",
       }),
