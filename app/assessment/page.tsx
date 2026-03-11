@@ -40,10 +40,25 @@ export default function AssessmentPage() {
     }
   }, [founderInfo, router])
 
-  function answer(value: number) {
+  function answer(value: number, category: string) {
     setScore((prev) => prev + value)
 
-    if (step + 1 < assessment.length) {
+      if (category === "visibility") {
+      setVisibility((prev) => prev + value)
+      }
+
+      if (category === "flow") {
+      setFlow((prev) => prev + value)
+      }
+
+      if (category === "friction") { 
+      setFriction((prev) => prev + value)
+      }
+
+      if (category === "automation") {
+      setAutomation((prev) => prev + value)
+      }  
+      if (step + 1 < assessment.length) {
       setSelectedIndex(null)
       setHoveredIndex(null)
       setStep((prev) => prev + 1)
