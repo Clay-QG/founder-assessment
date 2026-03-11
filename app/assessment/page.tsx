@@ -31,6 +31,11 @@ export default function AssessmentPage() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
 
+  const [visibility, setVisibility] = useState(0)
+  const [flow, setFlow] = useState(0)
+  const [friction, setFriction] = useState(0)
+  const [automation, setAutomation] = useState(0)
+
   const totalQuestions = assessment.length
   const progress = complete ? 100 : Math.round(((step + 1) / totalQuestions) * 100)
 
@@ -57,7 +62,8 @@ export default function AssessmentPage() {
 
       if (category === "automation") {
       setAutomation((prev) => prev + value)
-      }  
+      }
+  
       if (step + 1 < assessment.length) {
       setSelectedIndex(null)
       setHoveredIndex(null)
@@ -66,8 +72,10 @@ export default function AssessmentPage() {
     }
 
     setComplete(true)
-    router.push("/results")
-  }
+    router.push(
+      `/results?visibility=${visibility}&flow=${flow}&friction=${friction}&automation=${automation}`
+    )
+  
 
   function selectAnswer(index: number, value: number) {
     if (selectedIndex !== null) {
