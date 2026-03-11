@@ -182,6 +182,10 @@ export default function AssessmentPage() {
             fontSize: "1.1rem",
             lineHeight: 1.62,
             maxWidth: "34ch",
+            display: "-webkit-box",
+            WebkitLineClamp: 2,
+            WebkitBoxOrient: "vertical",
+            overflow: "hidden",
             position: "relative",
             zIndex: 1,
           }}
