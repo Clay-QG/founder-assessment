@@ -46,6 +46,7 @@ export default function ResultsPage() {
         companySize: founderInfo.companySize,
         industry: founderInfo.industry,
         role: founderInfo.role,
+        visibility: visibility,
         score: score,
         stage: "Assessment Complete",
       }),
