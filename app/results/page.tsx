@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect } from "react"
-import { useRouter } from "next/navigation"
+import { useRouter, useSearchParams } from "next/navigation"
 import { brand } from "../diagnostic-data"
 import { useDiagnostic } from "../diagnostic-provider"
 
@@ -27,7 +27,14 @@ const shared = {
 
 export default function ResultsPage() {
   const router = useRouter()
-  const { founderInfo, score, visibility, flow, friction, automation, complete } = useDiagnostic()
+  const searchParams = useSearchParams()
+
+  const visibility = Number(searchParams.get("visibility") || 0)
+  const flow = Number(searchParams.get("flow") || 0)
+  const friction = Number(searchParams.get("friction") || 0)
+  const automation = Number(searchParams.get("automation") || 0)
+
+  const { founderInfo, score, complete } = useDiagnostic()
 
   useEffect(() => {
     if (!founderInfo || !complete) return
