@@ -8,8 +8,11 @@ import { useDiagnostic } from "../diagnostic-provider"
 const shared = {
   container: {
     width: "100%",
-    maxWidth: 720,
+    maxWidth: "600px",
+    marginLeft: "auto",
+    marginRight: "auto",
     padding: "48px 56px",
+    boxSizing: "border-box",
     borderRadius: 18,
     background: "#6A6C6D",
     border: "1px solid rgba(255,255,255,0.18)",
@@ -98,8 +101,85 @@ function ResultsContent() {
   }
 
   return (
-    <main style={shared.main}>
-      <section style={{ ...shared.container, position: "relative" }}>
+    <main style={shared.main} className="results-main">
+      <style>{`
+        .results-mobile-break {
+          display: none;
+        }
+
+        .results-title-desktop {
+          display: inline;
+        }
+
+        .results-title-mobile {
+          display: none;
+        }
+
+        .results-title-line-top {
+          white-space: nowrap;
+        }
+
+        .results-assessment-word {
+          margin-left: 0.2em;
+        }
+
+        @media (max-width: 768px) {
+          .results-main {
+            padding-left: 16px !important;
+            padding-right: 16px !important;
+          }
+
+          .results-card {
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+            padding-left: 16px !important;
+            padding-right: 16px !important;
+          }
+
+          .results-domino {
+            display: none !important;
+          }
+
+          .results-mobile-break {
+            display: block;
+          }
+
+          .results-title-desktop {
+            display: none;
+          }
+
+          .results-title-mobile {
+            display: inline;
+          }
+
+          .results-assessment-word {
+            margin-left: 0;
+          }
+        }
+
+        @media (max-width: 380px) {
+          .results-title {
+            font-size: 1.3rem !important;
+            line-height: 1.12 !important;
+          }
+        }
+      `}</style>
+      <div
+        style={{
+          width: "100%",
+          maxWidth: "100vw",
+          paddingLeft: "16px",
+          paddingRight: "16px",
+          display: "flex",
+          justifyContent: "center",
+          boxSizing: "border-box",
+        }}
+      >
+        <section
+          style={{ ...shared.container, position: "relative", width: "100%", boxSizing: "border-box" }}
+          className="results-card"
+        >
         <div
           aria-hidden="true"
           style={{
@@ -116,6 +196,7 @@ function ResultsContent() {
           }}
         />
         <div
+          className="results-domino"
           aria-hidden="true"
           style={{
             position: "absolute",
@@ -145,17 +226,26 @@ function ResultsContent() {
             quiet ground
           </p>
           <h1
+            className="results-title"
             style={{
               margin: "0 auto 9px",
               fontSize: "clamp(1.6rem, 2.8vw, 2.2rem)",
               fontWeight: 600,
               lineHeight: 1.15,
               letterSpacing: "-0.02em",
-              whiteSpace: "nowrap",
-              maxWidth: "620px",
+              maxWidth: "100%",
+              textAlign: "center",
+              wordBreak: "break-word",
             }}
           >
-            Operational Intelligence Assessment
+            <>
+              <span className="results-title-desktop">Operational Intelligence Assessment</span>
+              <span className="results-title-mobile">
+                <span className="results-title-line-top">Operational Intelligence</span>
+                <br className="results-mobile-break" />
+                <span className="results-assessment-word">Assessment</span>
+              </span>
+            </>
           </h1>
 
           <p
@@ -172,6 +262,7 @@ function ResultsContent() {
           <section
             style={{
               display: "flex",
+              flexWrap: "wrap",
               justifyContent: "center",
               gap: 8,
               margin: "0 0 18px",
@@ -231,39 +322,45 @@ function ResultsContent() {
           ))}
         </header>
 
-        <section style={{ position: "relative", zIndex: 1 }}>
-            <a
-              href="https://calendly.com/clay-quietground"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="cta-button"
+          <section style={{ position: "relative", zIndex: 1 }}>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <a
+                href="https://calendly.com/clay-quietground"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cta-button"
+                style={{
+                  display: "block",
+                  width: "fit-content",
+                  textDecoration: "none",
+                  color: "#FFFFFF",
+                  padding: "0.75rem 1.1rem",
+                  borderRadius: 10,
+                  fontWeight: 600,
+                  border: "1px solid rgba(255,255,255,0.35)",
+                  margin: "28px 0 0",
+                }}
+              >
+                Schedule a call
+              </a>
+            </div>
+            <p
               style={{
-                display: "block",
-                width: "fit-content",
-                textDecoration: "none",
-                color: "#FFFFFF",
-                padding: "0.75rem 1.1rem",
-                borderRadius: 10,
-                fontWeight: 600,
-                border: "1px solid rgba(255,255,255,0.35)",
-                margin: "28px auto 0",
+                marginTop: "14px",
+                marginBottom: "-18px",
+                textAlign: "center",
+                fontSize: "14px",
+                color: "rgba(255,255,255,0.85)",
+                opacity: 0.66,
               }}
             >
-              Schedule a call
-            </a>
-          <p
-            style={{
-              marginTop: "14px",
-              marginBottom: "-18px",
-              textAlign: "center",
-              fontSize: "14px",
-              color: "rgba(255,255,255,0.71)",
-            }}
-          >
-            There’s usually more behind results like this. Happy to find it together.
-          </p>
+              Thank you for your input.
+              <br />
+              Let’s explore what’s behind these results.
+            </p>
+          </section>
         </section>
-      </section>
+      </div>
     </main>
   )
 }

@@ -99,6 +99,30 @@ export default function AssessmentPage() {
 
   return (
     <main style={shared.main}>
+      <style>{`
+        @media (max-width: 768px) {
+          .assessment-domino-logo {
+            display: none !important;
+          }
+
+          .assessment-question-prompt {
+            font-size: 0.89rem !important;
+            line-height: 1.28 !important;
+            max-width: 100% !important;
+          }
+
+          .assessment-answer-button {
+            font-size: 0.89rem !important;
+            line-height: 1.28 !important;
+          }
+        }
+
+        @media (min-width: 769px) {
+          .assessment-question-prompt {
+            max-width: 100% !important;
+          }
+        }
+      `}</style>
       <section style={{ ...shared.container, position: "relative" }}>
         <div
           aria-hidden="true"
@@ -116,6 +140,7 @@ export default function AssessmentPage() {
           }}
         />
         <div
+          className="assessment-domino-logo"
           aria-hidden="true"
           style={{
             position: "absolute",
@@ -177,6 +202,7 @@ export default function AssessmentPage() {
         </div>
 
         <p
+          className="assessment-question-prompt"
           style={{
             margin: 0,
             fontSize: "1.1rem",
@@ -206,7 +232,7 @@ export default function AssessmentPage() {
             <button
               key={option.label}
               onClick={() => selectAnswer(index, option.score)}
-              className={`assessment-option${selectedIndex === index ? " is-selected" : ""}`}
+              className={`assessment-option assessment-answer-button${selectedIndex === index ? " is-selected" : ""}`}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
               onFocus={() => setHoveredIndex(index)}
@@ -218,14 +244,15 @@ export default function AssessmentPage() {
                 color: selectedIndex === index || hoveredIndex === index ? "#000000" : "#2F2F2F",
                 borderRadius: 12,
                 padding: "12px 18px",
-                height: 56,
+                minHeight: 56,
                 boxSizing: "border-box",
                 display: "flex",
                 alignItems: "center",
                 cursor: "pointer",
                 fontWeight: 500,
+                fontSize: "0.88rem",
                 textAlign: "left",
-                lineHeight: 1.45,
+                lineHeight: 1.28,
                 transition: "background-color 150ms ease, border-color 150ms ease, color 150ms ease",
               }}
             >
@@ -251,4 +278,3 @@ export default function AssessmentPage() {
     </main>
   )
 }
-

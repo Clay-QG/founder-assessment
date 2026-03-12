@@ -12,8 +12,13 @@
   --font-sans: var(--font-inter);
 }
 
+html,
 body {
-  background: var(--qg-soft-earth);
+  min-height: 100%;
+  background: #5f6061;
+}
+
+body {
   color: var(--qg-deep-charcoal);
   font-family: var(--font-inter), sans-serif;
 }
