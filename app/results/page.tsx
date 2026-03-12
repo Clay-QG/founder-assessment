@@ -356,7 +356,7 @@ function ResultsContent() {
             >
               Thank you for your input.
               <br />
-              Let’s explore what’s behind these results.
+              15-minute working session to unpack what this score means.
             </p>
           </section>
         </section>
