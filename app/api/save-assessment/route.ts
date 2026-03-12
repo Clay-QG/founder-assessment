@@ -24,7 +24,6 @@ export async function POST(req: Request) {
           "Decision Friction": body.friction,
           "Automation Opportunity": body.automation,
           Score: body.score,
-          Stage: "Early",
         },
       }),
     }
